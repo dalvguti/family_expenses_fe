@@ -1,5 +1,6 @@
 {
   "name": "marriage_billing",
+  "homepage": "https://family-expenses.gutilopsa.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

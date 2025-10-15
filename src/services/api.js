@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Base API URL - update this based on your backend configuration
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
-
+//const API_BASE_URL = 'https://family-expenses-api.gutilopsa.com/api';
 /**
  * API Service Class
  * Handles all HTTP requests to the backend

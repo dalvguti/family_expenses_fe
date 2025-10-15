@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import apiService from '../services/api';
 import Category from '../models/Category';
+import '../styles/Common.css';
 import '../styles/Categories.css';
 
 const Categories = () => {
@@ -246,27 +247,42 @@ const Categories = () => {
                 </div>
               </div>
               
-              <div className="category-actions">
+              <div className="action-buttons">
                 <button 
                   onClick={() => handleEdit(category)} 
-                  className="btn-edit"
-                  title="Edit"
+                  className="icon-btn btn-edit"
+                  data-tooltip="Edit"
+                  aria-label="Edit category"
                 >
-                  Edit
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                  </svg>
                 </button>
                 <button 
                   onClick={() => handleToggleStatus(category.id)} 
-                  className="btn-toggle"
-                  title={category.isActive ? 'Deactivate' : 'Activate'}
+                  className={`icon-btn btn-toggle ${!category.isActive ? 'activate' : ''}`}
+                  data-tooltip={category.isActive ? 'Deactivate' : 'Activate'}
+                  aria-label={category.isActive ? 'Deactivate category' : 'Activate category'}
                 >
-                  {category.isActive ? 'Deactivate' : 'Activate'}
+                  {category.isActive ? (
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                    </svg>
+                  )}
                 </button>
                 <button 
                   onClick={() => handleDelete(category.id)} 
-                  className="btn-delete"
-                  title="Delete"
+                  className="icon-btn btn-delete"
+                  data-tooltip="Delete"
+                  aria-label="Delete category"
                 >
-                  Delete
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                  </svg>
                 </button>
               </div>
             </div>
